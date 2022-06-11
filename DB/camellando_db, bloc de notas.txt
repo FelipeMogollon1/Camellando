@@ -1,0 +1,176 @@
+DROP DATABASE camellando_db;
+-- --------------------------------------------------------
+CREATE DATABASE camellando_db;
+--
+-- Base de datos: `camellando_db`--
+
+-- --------------------------------------------------------
+
+-- Estructura de tabla para la tabla `tbl_academic_qualification`
+--
+CREATE TABLE tbl_academic_qualification (
+  id_academic_qualification int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  country varchar(50) NOT NULL,
+  institution varchar(50) NOT NULL,
+  academic_level varchar(50) NOT NULL,
+  graduate varchar(50) NOT NULL,
+  date_end date NOT NULL,
+  certificate text NOT NULL
+);
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `tbl_city`
+--
+
+CREATE TABLE tbl_city (
+  id_city int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  departament varchar(50) NOT NULL,
+  city varchar(50) NOT NULL  
+);
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `tbl_experience`
+--
+
+CREATE TABLE tbl_experience (
+  id_experience int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  title varchar(100) NOT NULL,
+  institution varchar(100) NOT NULL,
+  supervisor varchar(100) NOT NULL,
+  supervisor_phone varchar(100) NOT NULL,
+  start_date varchar(100) NOT NULL,
+  end_date varchar(100) NOT NULL,
+  description longtext NOT NULL,
+  type_experiences varchar(15) NOT NULL    	
+);
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `tbl_jobs`
+--
+
+CREATE TABLE tbl_jobs (
+  job_id int(11) PRIMARY KEY  AUTO_INCREMENT NOT NULL,
+  category int(11) NOT NULL,
+  title varchar(100) NOT NULL,
+  id_city int(11) NOT NULL,
+  type varchar(100) NOT NULL,
+  experience longtext NOT NULL,
+  description longtext NOT NULL,
+  responsibility longtext NOT NULL,
+  requirements varchar(255) NOT NULL,
+  company varchar(255) NOT NULL,
+  date_posted date NOT NULL,
+  closig_date date NOT NULL
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_job_applications`
+--
+
+CREATE TABLE tbl_job_applications (
+  id_job_applications int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  job_id int(11) NOT NULL,
+  descriptions_job VARCHAR(255) NOT NULL
+); 
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_language`
+--
+
+CREATE TABLE tbl_language (
+  id_language int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  name_lenguage varchar(255) NOT NULL,
+  read_language varchar(255),
+  writte_language varchar(255),
+  listen_language varchar(255),
+  level_language varchar(255)
+) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_professional`
+--
+
+CREATE TABLE tbl_professional (
+  id_professional int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  level_professional varchar(100) NOT NULL,
+  timeframe varchar(100) NOT NULL,
+  id_experience int(11) DEFAULT NULL,
+  id_referees int(11) DEFAULT NULL,
+  id_language int(11) DEFAULT NULL,
+  id_academic_qualification int(11) DEFAULT NULL,
+  id_job_applications int(11) DEFAULT NULL
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_referees`
+--
+
+CREATE TABLE tbl_referees (
+  id_referees int(11)PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  ref_name varchar(100) NOT NULL,
+  ref_mail varchar(100) NOT NULL,
+  ref_title varchar(100) NOT NULL,
+  ref_phone varchar(100) NOT NULL,
+  institution varchar(100) NOT NULL,
+  type_referees varchar(100) NOT NULL    
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_user`
+--
+
+CREATE TABLE tbl_user (
+  id_user int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  password varchar(20) NOT NULL,
+  first_name varchar(20) NOT NULL,
+  last_name varchar(100) NOT NULL,
+  start_date date NOT NULL,
+  email varchar(100) NOT NULL,
+  direction varchar(255) NOT NULL,
+  phone int(11) NOT NULL,
+  role int(11) NOT NULL,
+  web_site varchar(255) DEFAULT NULL,
+  status varchar(20) NOT NULL,
+  id_city int(11)  DEFAULT NULL,
+  id_professional int(11) DEFAULT NULL
+);
+
+-- --------------------------------------------------------
+
+-- FOREIGN para la tabla `tbl_jobs`
+--
+ALTER TABLE `tbl_jobs`
+ADD FOREIGN KEY (`id_city`) REFERENCES `tbl_city`(`id_city`);
+
+--
+-- FOREIGN para la tabla `tbl_job_applications`
+--
+ALTER TABLE `tbl_job_applications`
+ADD FOREIGN KEY (`job_id`) REFERENCES `tbl_jobs` (`job_id`);
+
+--
+-- FOREIGN para la tabla `tbl_professional`
+--
+ALTER TABLE `tbl_professional`
+  ADD FOREIGN KEY (`id_experience`) REFERENCES `tbl_experience` (`id_experience`),
+  ADD FOREIGN KEY (`id_academic_qualification`) REFERENCES `tbl_academic_qualification` (`id_academic_qualification`),
+  ADD FOREIGN KEY (`id_referees`) REFERENCES `tbl_referees` (`id_referees`),
+  ADD FOREIGN KEY (`id_language`) REFERENCES `tbl_language` (`id_language`),
+  ADD FOREIGN KEY (`id_job_applications`) REFERENCES `tbl_job_applications` (`id_job_applications`);
+--
+-- FOREIGN para la tabla `tbl_user`
+--
+ALTER TABLE `tbl_user`
+ADD FOREIGN KEY (`id_city`) REFERENCES `tbl_city`(`id_city`),
+ADD FOREIGN KEY (`id_professional`) REFERENCES `tbl_professional` (`id_professional`);
+
