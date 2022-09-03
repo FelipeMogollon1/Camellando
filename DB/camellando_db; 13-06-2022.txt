@@ -3,9 +3,7 @@ DROP DATABASE camellando_db;
 CREATE DATABASE camellando_db;
 --
 -- Base de datos: `camellando_db`--
-
 -- --------------------------------------------------------
-
 -- Estructura de tabla para la tabla `tbl_academic_qualification`
 --
 CREATE TABLE tbl_academic_qualification (
@@ -71,12 +69,22 @@ CREATE TABLE tbl_jobs (
 
 CREATE TABLE tbl_job_applications (
   id_job_applications int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  job_id int(11) NOT NULL,
+  job_id int(11) NOT NULL
+); 
+
+-- --------------------------------------------------------
+
+-- Estructura de tabla para la tabla `tbl_descriptions_job`
+--
+
+CREATE TABLE tbl_descriptions_job (
+  id_descriptions_job int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   descriptions_job VARCHAR(255) NOT NULL
 ); 
 
 -- --------------------------------------------------------
 
+ 
 --
 -- Estructura de tabla para la tabla `tbl_language`
 --
@@ -100,6 +108,7 @@ CREATE TABLE tbl_professional (
   id_professional int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   level_professional varchar(100) NOT NULL,
   timeframe varchar(100) NOT NULL,
+  id_user int(11) DEFAULT NULL,
   id_experience int(11) DEFAULT NULL,
   id_referees int(11) DEFAULT NULL,
   id_language int(11) DEFAULT NULL,
@@ -141,8 +150,8 @@ CREATE TABLE tbl_user (
   role int(11) NOT NULL,
   web_site varchar(255) DEFAULT NULL,
   status varchar(20) NOT NULL,
-  id_city int(11)  DEFAULT NULL,
-  id_professional int(11) DEFAULT NULL
+  id_city int(11) DEFAULT NULL,
+  id_descriptions_job int(11) DEFAULT NULL
 );
 
 -- --------------------------------------------------------
@@ -166,14 +175,15 @@ ALTER TABLE `tbl_professional`
   ADD FOREIGN KEY (`id_academic_qualification`) REFERENCES `tbl_academic_qualification` (`id_academic_qualification`),
   ADD FOREIGN KEY (`id_referees`) REFERENCES `tbl_referees` (`id_referees`),
   ADD FOREIGN KEY (`id_language`) REFERENCES `tbl_language` (`id_language`),
-  ADD FOREIGN KEY (`id_job_applications`) REFERENCES `tbl_job_applications` (`id_job_applications`);
+  ADD FOREIGN KEY (`id_job_applications`) REFERENCES `tbl_job_applications` (`id_job_applications`),
+  ADD FOREIGN KEY (id_user) REFERENCES tbl_user (id_user);
+--
 --
 -- FOREIGN para la tabla `tbl_user`
 --
 ALTER TABLE `tbl_user`
 ADD FOREIGN KEY (`id_city`) REFERENCES `tbl_city`(`id_city`),
-ADD FOREIGN KEY (`id_professional`) REFERENCES `tbl_professional` (`id_professional`);
-
+ADD FOREIGN KEY (`id_descriptions_job`) REFERENCES `tbl_descriptions_job`(`id_descriptions_job`);
 
 -- -- -- -- INSERT para la tabla tbl_city
 
@@ -1298,42 +1308,12 @@ VALUES
 ('VICHADA','LA PRIMAVERA'),
 ('VICHADA','PUERTO CARREÑO'),
 ('VICHADA','SANTA ROSALÍA');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- ---------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- 
-
-pendiente preguntar al profe que hacer en esta tabla ya que no permite el ingreso de datos por la FOREIGN KEY 
-
----------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- ---------------------------------------------------------- --------------------------------------------------------
-
-
 -- --------------------------------------------------------
 --
--- Insert de tabla para la tabla `tbl_job_applications`
+-- Insert de tabla para la tabla `tbl_descriptions_job`
 --
 --
-
-INSERT INTO tbl_job_applications(job_id, descriptions_job) 
+INSERT INTO tbl_descriptions_job (id_descriptions_job, descriptions_job) 
 VALUES 
 (1, 'Agricultura y Agronegocios'),
 (2, 'Asistencia sanitaria y farmaceutica'),

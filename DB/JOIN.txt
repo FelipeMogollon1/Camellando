@@ -1,0 +1,6 @@
+SELECT u.id_user,u.password, u.first_name, u.last_name, u.start_date, u.email, u.direction, u.phone, u.role, u.web_site, u.status, c.city, c.departament, d.descriptions_job
+FROM tbl_user as u
+join tbl_city as c
+on u.id_city = c.id_city
+join tbl_descriptions_job as d
+on u.id_descriptions_job= d.id_descriptions_job

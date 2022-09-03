@@ -1,4 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: access");
+header("Access-Control-Allow-Methods: GET,POST");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 class DB{
     private $host;
@@ -17,6 +22,7 @@ public function __construct()
     $this->charset  ="utf8mb4";
 
 }
+
 function connect()
     {
         try{
@@ -29,8 +35,7 @@ function connect()
 
             return $pdo;
 
-        }catch (PDOException $e)
-        {
+        }catch (PDOException $e){
             print_r(value:"Error de Conexión: :(" . $e->getMessage());
         }
     } 

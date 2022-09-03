@@ -48,3 +48,13 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
   }
+
+  p{
+    color: white;
+}
+
+
+  p:hover{
+    color: red;
+    cursor: hand;
+}

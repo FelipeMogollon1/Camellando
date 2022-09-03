@@ -2,22 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.css']
 })
-export class LoginComponent implements OnInit {
+export class IndexComponent implements OnInit {
 
   constructor(
     private ruteador:Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 
   enviarDatos():any{
     console.log('clickeado');
     this.ruteador.navigateByUrl('/Index');
   }
-
 }

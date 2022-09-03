@@ -1,18 +1,19 @@
-<body>
-  <div class="container col-xl-10 col-xxl-8 px-4 py-2">
+   <!-- body-->
+  <div class="container col-xl-10 col-xxl-8 px-4 py-2 shadow">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
-        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        <h1 class="display-4 fw-bold lh-1 mb-3">Queremos que puedas encontrar las mejores oportunidades de empleo.
+        </h1>
+        <h4 class="col-lg-10 fs-4">Estamos listos para ayudarte a encontrar ese empleo que tanto anhelas.</h4>
       </div>
-      <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-4 bg-dark">
+      <div class="col-md-10 mx-auto col-lg-5 ">
+        <form class="p-4 p-md-5 border rounded-4 bg-dark" (ngSubmit)="enviarDatos()">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control" id="email" placeholder="name@example.com">
             <label for="floatingInput" class="">Correo</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" id="password" placeholder="Password">
             <label for="floatingPassword">Contraseña</label>
           </div>
           <div class="checkbox mb-3">
@@ -20,11 +21,22 @@
               <input type="checkbox" value="remember-me" > Recordarme
             </label>
           </div>
-          <button class="w-100 btn btn-lg btn-outline-danger me-2 m-1 " type="submit">Iniciar Sesión</button>
-          <hr class="my-4 ">
-          <small class="text text-white">Al hacer clic en Iniciar Sesión, acepta los términos de uso.</small>
+          <button class="w-100 btn btn-lg btn-outline-danger me-2 m-1 "  type="submit">Iniciar Sesión</button>
+          <hr class="my-2 ">
+          <p class="text text-white">Al hacer clic en Iniciar Sesión, acepta los términos de uso.</p>
+        
+          <div class="my-2">
+              <p class="text  text-center" id="text">                
+                ¿Has olvidado tu contraseña?
+              </p>
+          </div>
+          <div>
+            <p class="text  text-center" id="text">
+              ¡Crea una cuenta!
+            </p>
+          </div>
+        
         </form>
       </div>
     </div>
   </div>
-</body>
