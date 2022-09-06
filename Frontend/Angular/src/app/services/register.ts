@@ -1,18 +1,13 @@
-export class tbl_user{
+export class tbl_usuarios{
   
-    id_user! : String;
-    password! : String;
-    first_name! : String;
-    last_name! : String;
-    start_date! : String;
-    email! : String;
-    direction! : String;
-    phone! : String;
-    role! : String;
-    web_site! : String;
-    status! : String;
-    id_city! : String;
-    id_descriptions_job! : String;
+    nombre!: String;
+    apellido!: String;
+    correo!: String;
+    contrasena!: String;
+    rol!: String;
+    estado!: String;
+    fechaRegistro!: String;
+
 }
 
 export class login{  
@@ -22,10 +17,7 @@ export class login{
 }
 
 export class ubicacion {
-    region!:  String;
-    c_digo_dane_del_departamento!:  String;
     departamento!:  String;
-    c_digo_dane_del_municipio!:  String;
     municipio!:  String;
 }
 

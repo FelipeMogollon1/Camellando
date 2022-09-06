@@ -8,7 +8,11 @@ import { Router} from '@angular/router';
   templateUrl: './resgister.component.html',
   styleUrls: ['./resgister.component.css']
 })
+
+
+
 export class ResgisterComponent implements OnInit {
+
 
   Ciudad:any;
   Categoria:any;
@@ -22,40 +26,37 @@ export class ResgisterComponent implements OnInit {
   ) {
 
     this.formularioRegistro=this.formulario.group({
-        
-      password : [''],
-      first_name : [''],
-      last_name : [''],
-      start_date : [''],
-      email : [''],
-      direction : [''],
-      phone : [''],
-      role : [''],
-      web_site : [''],
-      status : [''],
-      id_city : [''],
-      id_descriptions_job : ['']
+      nombre : [''],
+      apellido : [''],
+      correo : [''],
+      contrasena : [''],
+      rol : ['1'],
+      estado : ['Activo'],
+      fechaRegistro : [date] 
     })
 
    }
 
   ngOnInit(): void {
-    this.registerService.BuscarCiudad().subscribe(respuesta =>{
-      console.log(respuesta);
-      this.Ciudad = respuesta;
-    })
+   // this.registerService.BuscarCiudad().subscribe(respuesta =>{
+   //   console.log(respuesta);
+   //   this.Ciudad = respuesta;
+   // })
 
-  this.registerService.BuscarCategoria().subscribe(respuesta =>{
-      console.log(respuesta);
-      this.Categoria = respuesta; 
- })
+ // this.registerService.BuscarCategoria().subscribe(respuesta =>{
+    //  console.log(respuesta);
+   //   this.Categoria = respuesta; 
+ //})
   }
 
   enviarDatos():any{
-    console.log('clickeado');
+    console.log('date');
     console.log(this.formularioRegistro.value)
     this.registerService.AgregarRegistro(this.formularioRegistro.value).subscribe();
     this.ruteador.navigateByUrl('/Login');
   }
 
 }
+
+let date: Date = new Date();
+console.log(date);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {tbl_user} from './register';
+import {tbl_usuarios} from './register';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class RegisterService {
   constructor(private clientHttp:HttpClient) { }
 
   //Metodo para Agregar nuevo Registro
-  AgregarRegistro(datosRegistro:tbl_user):Observable<any>{
+  AgregarRegistro(datosRegistro:tbl_usuarios):Observable<any>{
     return this.clientHttp.post(this.API+"?insertar=1",datosRegistro);
   }
 

@@ -9,110 +9,44 @@
       </div>
       <div class="col-md-8 col-lg-8">
          <form [formGroup]="formularioRegistro" (ngSubmit)="enviarDatos()">      
-          <div class="row g-3">
-          
-            <div class="col-sm-6">           
-              <select class="form-select" id="" formControlName="role">
-                <option value="Empresa">¡Soy una Empresa!</option>
-                <option value="Persona">¡Soy un Candidato!</option>
-              </select>
-
-            </div>
-
-            <div class="col-sm-6">
-              <select class="form-select" id="" formControlName="status">
-                <option value="Activo">¡Activo!</option>
-              </select>
-            </div>
-
+          <div class="row g-3">         
         
             <div class="col-sm-6">
-              <label for="firstName" class="form-label">Nombres</label>
-              <input type="text" class="form-control" id="" placeholder="Felipe" formControlName="first_name" value="" required>
+              <label for="nombre" class="form-label">Nombres</label>
+              <input type="text" class="form-control" id="" placeholder="Felipe" formControlName="nombre" value="" required>
               <div class="invalid-feedback">
                 El nombre es requerido.
               </div>
             </div>
 
             <div class="col-sm-6">
-              <label for="lastName" class="form-label">Apellidos</label>
-              <input type="text" class="form-control" id="" placeholder="Mogollón" formControlName="last_name" value="" required="">
+              <label for="apellido" class="form-label">Apellidos</label>
+              <input type="text" class="form-control" id="" placeholder="Mogollón" formControlName="apellido" value="" required="">
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
             </div>
 
-                     <div class="col-8">
-              <label for="email" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="" formControlName="email" placeholder="ejemplo@mail.com">
+            <div class="col-6">
+              <label for="correo" class="form-label">Correo</label>
+              <input type="email" class="form-control" id="" formControlName="correo" placeholder="ejemplo@mail.com">
               <div class="invalid-feedback">
                 Ingrese una dirección de correo electrónico válida para actualizaciones de envío.
               </div>
             </div>
-
-            <div class="col-4">
-              <label for="address" class="form-label">Fecha de Nacimiento</label>
-              <input type="date" class="form-control" id="" name="" value="" formControlName="start_date" placeholder="1999-01-01"  min="" max="">
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-
-            <div class="col-12">
-              <label for="address" class="form-label">Dirección</label>
-              <input type="text" class="form-control" id="" formControlName="direction" placeholder="Cra 0 # 00 Barrio San antonio de Prado" required="">
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-
-
-            <div class="col-6">
-              <label for="address2" class="form-label">Telefono</label>
-              <input type="text" class="form-control" id="" formControlName="phone" placeholder="3210000000">
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="state" class="form-label">Ciudad</label>
-              <select  class="form-select" id="" formControlName="id_city" placeholder="Seleccione" >
-                <option *ngFor="let resgister of Ciudad; let iControl=index" value="{{resgister.id_city}} ">{{resgister.city}} , {{resgister.departament}}</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-
-            <div class="col-6">
-              <label for="address" class="form-label">Sitio Web</label>
-              <input type="text" class="form-control" id="" formControlName="web_site" placeholder="www.ejemplo.com">
-            </div>
-
-            <div class="col-md-6">
-              <label for="country" class="form-label">Categoria Empleo</label>
-              <select class="form-select" id="" formControlName="id_descriptions_job">
-                <option *ngFor="let resgister of Categoria; let iControl=index" value="{{resgister.id_descriptions_job}} ">{{resgister.descriptions_job}}</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
-            </div>
-
           </div>
 
           <hr class="my-4">
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label for="country" class="form-label">Nueva Contraseña</label>
-              <input type="password" class="form-control" id="" formControlName="password" placeholder="">
+              <input type="password" class="form-control" id="" formControlName="contrasena" placeholder="">
             </div>
   
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label for="state" class="form-label">Repite Contraseña</label>
-              <input type="password" class="form-control" id="" formControlName="password" placeholder="">
+              <input type="password" class="form-control" id="" formControlName="contrasena" placeholder="">
             </div>
           </div>
         
