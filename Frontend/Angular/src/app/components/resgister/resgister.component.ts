@@ -9,14 +9,15 @@ import { Router} from '@angular/router';
   styleUrls: ['./resgister.component.css']
 })
 
-
-
 export class ResgisterComponent implements OnInit {
 
 
   Ciudad:any;
   Categoria:any;
+  
   formularioRegistro:FormGroup;
+  formularioRegistroDos:FormGroup;
+  formularioRegistroTres:FormGroup;
 
   constructor(
     public formulario:FormBuilder,
@@ -24,6 +25,16 @@ export class ResgisterComponent implements OnInit {
     private ruteador:Router
 
   ) {
+
+    this.formularioRegistroDos=this.formulario.group({
+      nombre : [''],
+ 
+     })
+
+     this.formularioRegistroTres=this.formulario.group({
+      nombre : [''],
+ 
+     })
 
     this.formularioRegistro=this.formulario.group({
       nombre : [''],
@@ -38,25 +49,40 @@ export class ResgisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
-   // this.registerService.BuscarCiudad().subscribe(respuesta =>{
-   //   console.log(respuesta);
-   //   this.Ciudad = respuesta;
-   // })
 
- // this.registerService.BuscarCategoria().subscribe(respuesta =>{
-    //  console.log(respuesta);
-   //   this.Categoria = respuesta; 
- //})
-  }
+    this.registerService.BuscarCiudad().subscribe(respuesta =>{
+      console.log(respuesta);
+      this.Ciudad = respuesta;
+    })
 
-  enviarDatos():any{
-    console.log('date');
-    console.log(this.formularioRegistro.value)
-    this.registerService.AgregarRegistro(this.formularioRegistro.value).subscribe();
-    this.ruteador.navigateByUrl('/Login');
+    this.registerService.BuscarCategoria().subscribe(respuesta =>{
+      console.log(respuesta);
+      this.Categoria = respuesta; 
+    })
+  
+    }
+
+    enviarDatos():any{
+      console.log(this.formularioRegistro.value)
+      this.registerService.AgregarRegistro(this.formularioRegistro.value).subscribe();
+      //this.ruteador.navigateByUrl('/Login');
+    }
+
+    enviarDatosDos():any{
+      console.log(this.formularioRegistroDos.value)
+      this.registerService.AgregarRegistro(this.formularioRegistroDos.value).subscribe();
+      ///this.ruteador.navigateByUrl('/Login');
+    }
+    
+    enviarDatosTres():any{
+      console.log(this.formularioRegistroTres.value)
+      this.registerService.AgregarRegistro(this.formularioRegistroTres.value).subscribe();
+      ///this.ruteador.navigateByUrl('/Login');
   }
 
 }
-
 let date: Date = new Date();
-console.log(date);
+
+
+
+

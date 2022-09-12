@@ -106,6 +106,7 @@ CREATE TABLE tbl_educacion (
     nivel varchar(100) NOT NULL,
     centroEducativo varchar(200) NOT NULL,
     estado varchar(15) NOT NULL,
+    areaEstudio VARCHAR(200),
     desdeMes varchar(20) NOT NULL,
     desdeano int Unsigned NOT NULL,
     hastaMes varchar(20) NOT NULL,

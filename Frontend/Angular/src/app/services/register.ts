@@ -1,5 +1,5 @@
 export class tbl_usuarios{
-  
+    id_usuarios!: String;    
     nombre!: String;
     apellido!: String;
     correo!: String;
@@ -17,12 +17,13 @@ export class login{
 }
 
 export class ubicacion {
+    id_ubicacion!:  String;
     departamento!:  String;
-    municipio!:  String;
+    ciudad!:  String;
 }
 
-export class tbl_descriptions_job {
+export class tbl_cargo {
   
-    id_descriptions_job ! : String;
-    descriptions_job! : String;
+    id_cargo ! : String;
+    nombre! : String;
 }

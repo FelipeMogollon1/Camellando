@@ -15,7 +15,7 @@ $charset  ="utf8mb4";
 $conexionBD = new mysqli($servidor, $usuario, $contrasenia, $nombreBaseDatos);
 
 // Consulta todos los registros de la tabla tbl_user id_user
-$sqlEmpleaados = mysqli_query($conexionBD,"SELECT * FROM tbl_descriptions_job");
+$sqlEmpleaados = mysqli_query($conexionBD,"SELECT * FROM tbl_cargo");
 if(mysqli_num_rows($sqlEmpleaados) > 0){
     $empleaados = mysqli_fetch_all($sqlEmpleaados,MYSQLI_ASSOC);
     echo json_encode($empleaados);
