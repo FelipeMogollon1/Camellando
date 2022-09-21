@@ -1,0 +1,8 @@
+# this line is for what can't enter at the carpetas desde the url
+Options All -Indexes
+Options -multiviews
+
+RewriteEngine on 
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]

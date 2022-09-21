@@ -1,127 +1,58 @@
- <!-- body-->
-<div class="container shadow-lg">
+ <!-- PRIMER REGISTRO-->
+<div class="container shadow-lg" >
   <main>
     <div class="py-5 text-center">
         <h2>Registrate</h2>
     </div>
     <div class="row g-5">
-      <div class="col-md-2">        
-      </div>
-      <div class="col-md-8 col-lg-8">
-         <form [formGroup]="formularioRegistro" (ngSubmit)="enviarDatos()">      
-          <div class="row g-3">
-          
-            <div class="col-sm-6">           
-              <select class="form-select" id="" formControlName="role">
-                <option value="Empresa">¡Soy una Empresa!</option>
-                <option value="Persona">¡Soy un Candidato!</option>
-              </select>
-
-            </div>
-
-            <div class="col-sm-6">
-              <select class="form-select" id="" formControlName="status">
-                <option value="Activo">¡Activo!</option>
-              </select>
-            </div>
-
+      <div class="col-md-3">        
+      </div>  
+      <div class="col-md-6 col-lg-6">
+         <form class="needs-validation" novalidate [formGroup]="formularioRegistro" (ngSubmit)="enviarDatos()">      
+          <div class="row g-3">         
         
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">Nombres</label>
-              <input type="text" class="form-control" id="" placeholder="Felipe" formControlName="first_name" value="" required>
+            <div class="col-sm-12">
+              <label for="nombre" class="form-label">Nombres</label>
+              <input type="text" class="form-control" id="" placeholder="Felipe" formControlName="nombre" value="" required>
               <div class="invalid-feedback">
                 El nombre es requerido.
               </div>
             </div>
 
-            <div class="col-sm-6">
-              <label for="lastName" class="form-label">Apellidos</label>
-              <input type="text" class="form-control" id="" placeholder="Mogollón" formControlName="last_name" value="" required="">
+            <div class="col-sm-12">
+              <label for="apellido" class="form-label">Apellidos</label>
+              <input type="text" class="form-control" id="" placeholder="Mogollón" formControlName="apellido" value="" required="">
               <div class="invalid-feedback">
                 Valid last name is required.
               </div>
             </div>
 
-                     <div class="col-8">
-              <label for="email" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="" formControlName="email" placeholder="ejemplo@mail.com">
+            <div class="col-12">
+              <label for="correo" class="form-label">Correo</label>
+              <input type="email" class="form-control" id="" formControlName="correo" placeholder="ejemplo@mail.com">
               <div class="invalid-feedback">
                 Ingrese una dirección de correo electrónico válida para actualizaciones de envío.
               </div>
             </div>
-
-            <div class="col-4">
-              <label for="address" class="form-label">Fecha de Nacimiento</label>
-              <input type="date" class="form-control" id="" name="" value="" formControlName="start_date" placeholder="1999-01-01"  min="" max="">
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-
-            <div class="col-12">
-              <label for="address" class="form-label">Dirección</label>
-              <input type="text" class="form-control" id="" formControlName="direction" placeholder="Cra 0 # 00 Barrio San antonio de Prado" required="">
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
-            </div>
-
-
-
-            <div class="col-6">
-              <label for="address2" class="form-label">Telefono</label>
-              <input type="text" class="form-control" id="" formControlName="phone" placeholder="3210000000">
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="state" class="form-label">Ciudad</label>
-              <select  class="form-select" id="" formControlName="id_city" placeholder="Seleccione" >
-                <option *ngFor="let resgister of Ciudad; let iControl=index" value="{{resgister.id_city}} ">{{resgister.city}} , {{resgister.departament}}</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid state.
-              </div>
-            </div>
-
-            <div class="col-6">
-              <label for="address" class="form-label">Sitio Web</label>
-              <input type="text" class="form-control" id="" formControlName="web_site" placeholder="www.ejemplo.com">
-            </div>
-
-            <div class="col-md-6">
-              <label for="country" class="form-label">Categoria Empleo</label>
-              <select class="form-select" id="" formControlName="id_descriptions_job">
-                <option *ngFor="let resgister of Categoria; let iControl=index" value="{{resgister.id_descriptions_job}} ">{{resgister.descriptions_job}}</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid country.
-              </div>
-            </div>
-
           </div>
 
           <hr class="my-4">
 
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label for="country" class="form-label">Nueva Contraseña</label>
-              <input type="password" class="form-control" id="" formControlName="password" placeholder="">
+              <input type="password" class="form-control" id="" formControlName="contrasena" placeholder="">
             </div>
   
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label for="state" class="form-label">Repite Contraseña</label>
-              <input type="password" class="form-control" id="" formControlName="password" placeholder="">
+              <input type="password" class="form-control" id="" formControlName="contrasena" placeholder="">
             </div>
-          </div>
-        
-
+          </div>      
          
-
           <hr class="my-4">
 
-          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Guardar</button>
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
         </form>
       </div>
       <div class="col-md-2">
@@ -135,13 +66,960 @@
 </div>
 
 
+ <!-- SEGUNDO REGISTRO-->
+ <div class="container shadow-lg" >
+  <main>
+    <div class="py-5 text-center">
+        <h2>Información Personal</h2>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-3">        
+      </div>  
+      <div class="col-md-6 col-lg-6">
+         <form class="needs-validation" novalidate [formGroup]="formularioRegistroDos" (ngSubmit)="enviarDatosDos()">      
+          <div class="row g-3">
+            
+
+        
+            <div class="col-sm-3">
+              <label for="nombre" class="form-label">Tipo*</label>
+              <select type="text" class="form-control" id="" placeholder="" formControlName="tipoIdentificacion" value="" required>
+                <option value="CEDULA DE CIUDADANIA">CC</option>
+                <option value="CEDULA DE EXTRANJERIA">CE</option>
+                <option value="TARJETA DE IDENTIDAD">TI</option>
+                <option value="REGISTRO CIVIL">RC</option>
+              </select>             
+              <div class="invalid-feedback">
+                El tipo de identificación es requerido.
+              </div>
+            </div>
+
+            <div class="col-sm-9">
+              <label for="apellido" class="form-label">Identificación*</label>
+              <input type="text" class="form-control" id="" placeholder="" formControlName="numeroIdentificacion" value="" required="">
+              <div class="invalid-feedback">
+                El numero de identificación es requerido.
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="nombre" class="form-label">Fecha de nacimiento*</label>
+              <input type="date" max="2007-12-12" min="1900-12-12"class="form-control" id="" placeholder="" formControlName="fechaNacimiento" value="" required>
+              <div class="invalid-feedback">
+                El nombre es requerido.
+              </div>
+            </div>
+
+            <div class="col-8">
+              <label for="correo" class="form-label">Teléfono*</label>
+              <input type="tel" class="form-control" id="" formControlName="telefono" placeholder="">
+              <div class="invalid-feedback">
+                Ingrese numero de telefono.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="correo" class="form-label">Foto</label>
+                <input type="file" accept="image/*" class="form-control" id="foto" formControlName="foto">
+             </div>
+        
+
+          <div class="col-12">
+            <label for="ciudad" class="form-label">Ciudad*</label>
+            <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="id_ubicacion" required>
+              <option *ngFor="let resgister of Ciudad; let iControl=index" value="{{resgister.id_ubicacion}}">{{resgister.ciudad}} , {{resgister.departamento}}</option>
+            </select>  
+            <div class="invalid-feedback">
+              Ingrese numero de telefono.
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <label for="apellido" class="form-label">Dirección*</label>
+            <input type="text" class="form-control" id="" placeholder="" formControlName="direccion" value="" required="">
+            <div class="invalid-feedback">
+              la Dirección es requerida.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="ciudad" class="form-label">Genero*</label>
+            <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="ubicacion" required>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>  
+            <div class="invalid-feedback">
+              Ingrese numero de telefono.
+            </div>
+          </div>
+
+        </div>
+        
+         
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
+        </form>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+  </footer>
+</div>
+
+
+
+<!-- TERCER  REGISTRO-->
+<div class="container shadow-lg" >
+  <main>
+    <div class="py-5 text-center">
+        <h2>Perfil Profesional</h2>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-3">        
+      </div>  
+      <div class="col-md-6 col-lg-6">
+         <form class="needs-validation" novalidate [formGroup]="formularioRegistroTres" (ngSubmit)="enviarDatosTres()">      
+          <div class="row g-3">
+            
+            <div class="col-md-12">
+              <label for="country" class="form-label">Cargo o título breve de su Hoja de Vida</label>
+              <select class="form-select" id="" formControlName="id_cargo">
+                <option *ngFor="let resgister of Categoria; let iControl=index" value="{{resgister.id_cargo}} ">{{resgister.nombre}}</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <label for="apellido" class="form-label">Descripción breve de tu perfil profesional*</label>
+              <textarea type="text" class="form-control" rows="3" id="" placeholder="" formControlName="descripcion" value="" required=""></textarea>
+              <div class="invalid-feedback">
+                El numero de identificación es requerido.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="correo" class="form-label">Salario mínimo aceptado</label>
+              <input type="number" class="form-control" id="" formControlName="telefono" placeholder="">
+              <div class="invalid-feedback">
+                Ingrese numero de telefono.
+              </div>
+            </div>
+             
+            <div class="col-6">
+                  <label class="Disponibilidad" >Disponibilidad para viajar</label>
+                  <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="disponibilidadViajar" required>
+                    <option value="SI">Si</option>
+                    <option value="NO">No</option>
+                  </select>           
+            </div>
+
+            <div class="col-6">
+              <label class="Disponibilidad" >Disponibilidad cambiar domicilio</label>
+              <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="disponibilidadCambiarDomicilio" required>
+                <option value="SI">Si</option>
+                <option value="NO">No</option>
+              </select>           
+           </div>
+
+           <div class="col-12">
+            <label class="idioma">Idiomas</label>
+
+            <div class=" mx-auto">
+              <table class="table table-hover ">
+                <thead>
+                  <tr class="">
+                    <th>Idiomas</th>
+                    <th>Lectura</th>
+                    <th>Escritura</th>
+                    <th>Escucha</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Español</td>
+                    <td>Nativo</td>
+                    <td>Nativo</td>
+                    <td>Nativo</td>
+                    <td><button type="button" class="btn btn-outline-danger">X</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-dark">Añadir</button>
+              </div>
+            </div>
+            
+         </div>
+
+        </div>
+        
+         
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
+        </form>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+  </footer>
+</div>
+
+
+
+
+<!-- CUARTO  REGISTRO-->
+<div class="container shadow-lg" >
+  <main>
+    <div class="py-5 text-center">
+        <h2>¿Que formación tienes?</h2>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-3">        
+      </div>  
+      <div class="col-md-6 col-lg-6">
+         <form class="needs-validation" novalidate [formGroup]="formularioRegistroTres" (ngSubmit)="enviarDatosTres()">      
+          <div class="row g-3">
+            
+            
+            <div class="col-sm-12">
+              <label for="nombre" class="form-label">Nivel de estudio*</label>
+              <select type="text" class="form-control" id="" placeholder="" formControlName="nivel" value="" required>
+                <option value="Educación Básica Primaria">Educación Básica Primaria</option>
+                <option value="Educación Básica Secundaria">Educación Básica Secundaria</option>
+                <option value="Bachiderato / Educación Media">Bachiderato / Educación Media</option>
+                <option value="Universidad / Carrera Técnica">Universidad / Carrera Técnica</option>
+                <option value="Universidad / Carrera Tecnológica">Universidad / Carrera Tecnológica</option>
+                <option value="Universidad / Carrera Profesional">Universidad / Carrera Profesional</option>
+                <option value="Postgrado / Especialización">Postgrado / Especialización</option>
+                <option value="Postgrado / Maestría">Postgrado / Maestría</option>
+                <option value="Postgrado / Doctorado">Postgrado / Doctorado</option>
+              </select>             
+              <div class="invalid-feedback">
+                El Nivel de estudio es requerido.
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <label for="apellido" class="form-label">Centro educativo*</label>
+              <input type="text" class="form-control" id="" formControlName="centroEducativo" placeholder="">              <div class="invalid-feedback">
+                El Centro educativo es requerido.
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <label for="apellido" class="form-label">Area de estudio*</label>
+              <input type="text" class="form-control" id="" formControlName="areaEstudio" placeholder="">              <div class="invalid-feedback">
+                El areaEstudio es requerido.
+              </div>
+            </div>
+
+             
+            <div class="col-12">
+                  <label class="Disponibilidad" >Estado</label>
+                  <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="disponibilidadViajar" required>
+                    <option value="Cursando">Cursando</option>
+                    <option value="Completado">Completado</option>
+                  </select>           
+            </div>
+
+            <div class="col-6">
+              <label class="dMes">Desde</label>
+              <select type="desdeMes" class="form-select" id="" placeholder="Seleccione" formControlName="desdeMes" required>
+                <option value="Enero">Enero</option>
+                <option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option>
+                <option value="Abril">Abril</option>
+                <option value="Mayo">Mayo</option>
+                <option value="Junio">Junio</option>
+                <option value="Julio">Julio</option>
+                <option value="Agosto">Agosto</option>
+                <option value="Septiembre">Septiembre</option>
+                <option value="Octubre">Octubre</option>
+                <option value="Noviembre">Noviembre</option>
+                <option value="Diciembre">Diciembre</option>
+              </select>           
+        </div>
+
+        <div class="col-6">
+          <label class="dAno" ></label>
+            <select class="form-select" id="" placeholder="Seleccione" formControlName="desdeAno" required>
+              <option value="" class="option">Año</option>
+              <option value="2022" class="option">2022</option>
+              <option value="2021" class="option">2021</option>
+              <option value="2020" class="option">2020</option>
+              <option value="2019" class="option">2019</option>
+              <option value="2018" class="option">2018</option>
+              <option value="2017" class="option">2017</option>
+              <option value="2016" class="option">2016</option>
+              <option value="2015" class="option">2015</option>
+              <option value="2014" class="option">2014</option>
+              <option value="2013" class="option">2013</option>
+              <option value="2012" class="option">2012</option>
+              <option value="2011" class="option">2011</option>
+              <option value="2010" class="option">2010</option>
+              <option value="2009" class="option">2009</option>
+              <option value="2008" class="option">2008</option>
+              <option value="2007" class="option">2007</option>
+              <option value="2006" class="option">2006</option>
+              <option value="2005" class="option">2005</option>
+              <option value="2004" class="option">2004</option>
+              <option value="2003" class="option">2003</option>
+              <option value="2002" class="option">2002</option>
+              <option value="2001" class="option">2001</option>
+              <option value="2000" class="option">2000</option>
+              <option value="1999" class="option">1999</option>
+              <option value="1998" class="option">1998</option>
+              <option value="1997" class="option">1997</option>
+              <option value="1996" class="option">1996</option>
+              <option value="1995" class="option">1995</option>
+              <option value="1994" class="option">1994</option>
+              <option value="1993" class="option">1993</option>
+              <option value="1992" class="option">1992</option>
+              <option value="1991" class="option">1991</option>
+              <option value="1990" class="option">1990</option>
+              <option value="1989" class="option">1989</option>
+              <option value="1988" class="option">1988</option>
+              <option value="1987" class="option">1987</option>
+              <option value="1986" class="option">1986</option>
+              <option value="1985" class="option">1985</option>
+              <option value="1984" class="option">1984</option>
+              <option value="1983" class="option">1983</option>
+              <option value="1982" class="option">1982</option>
+              <option value="1981" class="option">1981</option>
+              <option value="1980" class="option">1980</option>
+              <option value="1979" class="option">1979</option>
+              <option value="1978" class="option">1978</option>
+              <option value="1977" class="option">1977</option>
+              <option value="1976" class="option">1976</option>
+              <option value="1975" class="option">1975</option>
+              <option value="1974" class="option">1974</option>
+              <option value="1973" class="option">1973</option>
+              <option value="1972" class="option">1972</option>
+              <option value="1971" class="option">1971</option>
+              <option value="1970" class="option">1970</option>
+              <option value="1969" class="option">1969</option>
+              <option value="1968" class="option">1968</option>
+              <option value="1967" class="option">1967</option>
+              <option value="1966" class="option">1966</option>
+              <option value="1965" class="option">1965</option>
+              <option value="1964" class="option">1964</option>
+              <option value="1963" class="option">1963</option>
+              <option value="1962" class="option">1962</option>
+              <option value="1961" class="option">1961</option>
+              <option value="1960" class="option">1960</option>
+              <option value="1959" class="option">1959</option>
+              <option value="1958" class="option">1958</option>
+              <option value="1957" class="option">1957</option>
+              <option value="1956" class="option">1956</option>
+              <option value="1955" class="option">1955</option>
+              <option value="1954" class="option">1954</option>
+              <option value="1953" class="option">1953</option>
+              <option value="1952" class="option">1952</option>
+              <option value="1951" class="option">1951</option>
+              <option value="1950" class="option">1950</option>
+              <option value="1949" class="option">1949</option>
+              <option value="1948" class="option">1948</option>
+              <option value="1947" class="option">1947</option>
+              <option value="1946" class="option">1946</option>
+              <option value="1945" class="option">1945</option>
+              <option value="1944" class="option">1944</option>
+              <option value="1943" class="option">1943</option>
+              <option value="1942" class="option">1942</option>
+              <option value="1941" class="option">1941</option>
+              <option value="1940" class="option">1940</option>
+              <option value="1939" class="option">1939</option>
+              <option value="1938" class="option">1938</option>
+              <option value="1937" class="option">1937</option>
+              <option value="1936" class="option">1936</option>
+              <option value="1935" class="option">1935</option>
+              <option value="1934" class="option">1934</option>
+              <option value="1933" class="option">1933</option>
+              <option value="1932" class="option">1932</option>
+              <option value="1931" class="option">1931</option>
+              <option value="1930" class="option">1930</option>
+              <option value="1929" class="option">1929</option>
+              <option value="1928" class="option">1928</option>
+              <option value="1927" class="option">1927</option>
+              <option value="1926" class="option">1926</option>
+              <option value="1925" class="option">1925</option>
+              <option value="1924" class="option">1924</option>
+              <option value="1923" class="option">1923</option>
+              <option value="1922" class="option">1922</option>
+              <option value="1921" class="option">1921</option>
+              <option value="1920" class="option">1920</option>
+            </select>                      
+      </div>
+
+      <div class="col-6">
+        <label class="dMes">Hasta</label>
+        <select type="desdeMes" class="form-select" id="" placeholder="Seleccione" formControlName="HastaMes" required>
+          <option value="Enero">Enero</option>
+          <option value="Febrero">Febrero</option>
+          <option value="Marzo">Marzo</option>
+          <option value="Abril">Abril</option>
+          <option value="Mayo">Mayo</option>
+          <option value="Junio">Junio</option>
+          <option value="Julio">Julio</option>
+          <option value="Agosto">Agosto</option>
+          <option value="Septiembre">Septiembre</option>
+          <option value="Octubre">Octubre</option>
+          <option value="Noviembre">Noviembre</option>
+          <option value="Diciembre">Diciembre</option>
+        </select>           
+  </div>
+
+  <div class="col-6">
+    <label class="dAno" ></label>
+      <select class="form-select" id="" placeholder="Seleccione" formControlName="HastaAno" required>
+        <option value="" class="option">Año</option>
+        <option value="2022" class="option">2022</option>
+        <option value="2021" class="option">2021</option>
+        <option value="2020" class="option">2020</option>
+        <option value="2019" class="option">2019</option>
+        <option value="2018" class="option">2018</option>
+        <option value="2017" class="option">2017</option>
+        <option value="2016" class="option">2016</option>
+        <option value="2015" class="option">2015</option>
+        <option value="2014" class="option">2014</option>
+        <option value="2013" class="option">2013</option>
+        <option value="2012" class="option">2012</option>
+        <option value="2011" class="option">2011</option>
+        <option value="2010" class="option">2010</option>
+        <option value="2009" class="option">2009</option>
+        <option value="2008" class="option">2008</option>
+        <option value="2007" class="option">2007</option>
+        <option value="2006" class="option">2006</option>
+        <option value="2005" class="option">2005</option>
+        <option value="2004" class="option">2004</option>
+        <option value="2003" class="option">2003</option>
+        <option value="2002" class="option">2002</option>
+        <option value="2001" class="option">2001</option>
+        <option value="2000" class="option">2000</option>
+        <option value="1999" class="option">1999</option>
+        <option value="1998" class="option">1998</option>
+        <option value="1997" class="option">1997</option>
+        <option value="1996" class="option">1996</option>
+        <option value="1995" class="option">1995</option>
+        <option value="1994" class="option">1994</option>
+        <option value="1993" class="option">1993</option>
+        <option value="1992" class="option">1992</option>
+        <option value="1991" class="option">1991</option>
+        <option value="1990" class="option">1990</option>
+        <option value="1989" class="option">1989</option>
+        <option value="1988" class="option">1988</option>
+        <option value="1987" class="option">1987</option>
+        <option value="1986" class="option">1986</option>
+        <option value="1985" class="option">1985</option>
+        <option value="1984" class="option">1984</option>
+        <option value="1983" class="option">1983</option>
+        <option value="1982" class="option">1982</option>
+        <option value="1981" class="option">1981</option>
+        <option value="1980" class="option">1980</option>
+        <option value="1979" class="option">1979</option>
+        <option value="1978" class="option">1978</option>
+        <option value="1977" class="option">1977</option>
+        <option value="1976" class="option">1976</option>
+        <option value="1975" class="option">1975</option>
+        <option value="1974" class="option">1974</option>
+        <option value="1973" class="option">1973</option>
+        <option value="1972" class="option">1972</option>
+        <option value="1971" class="option">1971</option>
+        <option value="1970" class="option">1970</option>
+        <option value="1969" class="option">1969</option>
+        <option value="1968" class="option">1968</option>
+        <option value="1967" class="option">1967</option>
+        <option value="1966" class="option">1966</option>
+        <option value="1965" class="option">1965</option>
+        <option value="1964" class="option">1964</option>
+        <option value="1963" class="option">1963</option>
+        <option value="1962" class="option">1962</option>
+        <option value="1961" class="option">1961</option>
+        <option value="1960" class="option">1960</option>
+        <option value="1959" class="option">1959</option>
+        <option value="1958" class="option">1958</option>
+        <option value="1957" class="option">1957</option>
+        <option value="1956" class="option">1956</option>
+        <option value="1955" class="option">1955</option>
+        <option value="1954" class="option">1954</option>
+        <option value="1953" class="option">1953</option>
+        <option value="1952" class="option">1952</option>
+        <option value="1951" class="option">1951</option>
+        <option value="1950" class="option">1950</option>
+        <option value="1949" class="option">1949</option>
+        <option value="1948" class="option">1948</option>
+        <option value="1947" class="option">1947</option>
+        <option value="1946" class="option">1946</option>
+        <option value="1945" class="option">1945</option>
+        <option value="1944" class="option">1944</option>
+        <option value="1943" class="option">1943</option>
+        <option value="1942" class="option">1942</option>
+        <option value="1941" class="option">1941</option>
+        <option value="1940" class="option">1940</option>
+        <option value="1939" class="option">1939</option>
+        <option value="1938" class="option">1938</option>
+        <option value="1937" class="option">1937</option>
+        <option value="1936" class="option">1936</option>
+        <option value="1935" class="option">1935</option>
+        <option value="1934" class="option">1934</option>
+        <option value="1933" class="option">1933</option>
+        <option value="1932" class="option">1932</option>
+        <option value="1931" class="option">1931</option>
+        <option value="1930" class="option">1930</option>
+        <option value="1929" class="option">1929</option>
+        <option value="1928" class="option">1928</option>
+        <option value="1927" class="option">1927</option>
+        <option value="1926" class="option">1926</option>
+        <option value="1925" class="option">1925</option>
+        <option value="1924" class="option">1924</option>
+        <option value="1923" class="option">1923</option>
+        <option value="1922" class="option">1922</option>
+        <option value="1921" class="option">1921</option>
+        <option value="1920" class="option">1920</option>
+      </select>                      
+</div>
+
+
+
+
+           <div class="col-12">
+            <label class="idioma">Añadir nueva formación</label>
+
+            <div class=" mx-auto">
+              <table class="table table-hover ">
+                <thead>
+                  <tr class="">
+                    <th>Centro educativo</th>
+                    <th>Area de estudio</th>
+                    <th>Estado</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>institucion tal</td>
+                    <td>universida..</td>
+                    <td>Completado</td>
+                    <td><button type="button" class="btn btn-outline-danger">X</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-dark">Añadir</button>
+              </div>
+            </div>
+            
+         </div>
+
+        </div>
+        
+         
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
+        </form>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+  </footer>
+</div>
+
+
+
+<!-- QUINTO  REGISTRO-->
+<div class="container shadow-lg" >
+  <main>
+    <div class="py-5 text-center">
+        <h2>Experiencia Laboral</h2>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-3">        
+      </div>  
+      <div class="col-md-6 col-lg-6">
+         <form class="needs-validation" novalidate [formGroup]="formularioRegistroTres" (ngSubmit)="enviarDatosTres()">      
+          <div class="row g-3">
+            
+            <div class="col-sm-12">
+              <label for="nCargo" class="form-label">Nombre del cargo*</label>
+              <input type="text" class="form-control" id="" formControlName="nombreCargo" placeholder="">              <div class="invalid-feedback">
+                El Centro educativo es requerido.
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <label for="country" class="form-label">Area Profesional</label>
+                <select class="form-select" id="" formControlName="areaProfesional">
+                  <option *ngFor="let resgister of Categoria; let iControl=index" value="{{resgister.id_cargo}} ">{{resgister.nombre}}</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+
+
+              <div class="col-sm-12">
+                <label for="nCargo" class="form-label">Nombre de la empresa*</label>
+                <input type="text" class="form-control" id="" formControlName="nombreEmpresa" placeholder="">    
+                 <div class="invalid-feedback">
+                  El Centro educativo es requerido.
+                  </div>
+                </div>
+
+                <div class="col-sm-12">
+                  <label for="nCargo" class="form-label">Actividad de la empresa*</label>
+                  <input type="text" class="form-control" id="" formControlName="actividadEmpresa" placeholder="">    
+                   <div class="invalid-feedback">
+                    El Centro educativo es requerido.
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="ciudad" class="form-label">Ciudad de la empresa*</label>
+                    <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="ubicacion" required>
+                      <option *ngFor="let resgister of Ciudad; let iControl=index" value="{{resgister.id_ubicacion}}">{{resgister.ciudad}} , {{resgister.departamento}}</option>
+                    </select>  
+                    <div class="invalid-feedback">
+                      Ingrese numero de telefono.
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12">
+                    <label for="apellido" class="form-label">Funciones y logros del cargo</label>
+                    <textarea type="text" class="form-control" rows="3" id="" placeholder="" formControlName="funcionesLogros" value="" required=""></textarea>
+                    <div class="invalid-feedback">
+                      El numero de identificación es requerido.
+                    </div>
+                  </div>
+
+             
+            <div class="col-12">
+                  <label class="Disponibilidad" >Estado</label>
+                  <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="disponibilidadViajar" required>
+                    <option value="Actualmente">Actualmente</option>
+                    <option value="Finalizado">Finalizado</option>
+                  </select>           
+            </div>
+
+            <div class="col-6">
+              <label class="dMes">Desde</label>
+              <select type="desdeMes" class="form-select" id="" placeholder="Seleccione" formControlName="desdeMes" required>
+                <option value="Enero">Enero</option>
+                <option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option>
+                <option value="Abril">Abril</option>
+                <option value="Mayo">Mayo</option>
+                <option value="Junio">Junio</option>
+                <option value="Julio">Julio</option>
+                <option value="Agosto">Agosto</option>
+                <option value="Septiembre">Septiembre</option>
+                <option value="Octubre">Octubre</option>
+                <option value="Noviembre">Noviembre</option>
+                <option value="Diciembre">Diciembre</option>
+              </select>           
+        </div>
+
+        <div class="col-6">
+          <label class="dAno" ></label>
+            <select class="form-select" id="" placeholder="Seleccione" formControlName="desdeAno" required>
+              <option value="" class="option">Año</option>
+              <option value="2022" class="option">2022</option>
+              <option value="2021" class="option">2021</option>
+              <option value="2020" class="option">2020</option>
+              <option value="2019" class="option">2019</option>
+              <option value="2018" class="option">2018</option>
+              <option value="2017" class="option">2017</option>
+              <option value="2016" class="option">2016</option>
+              <option value="2015" class="option">2015</option>
+              <option value="2014" class="option">2014</option>
+              <option value="2013" class="option">2013</option>
+              <option value="2012" class="option">2012</option>
+              <option value="2011" class="option">2011</option>
+              <option value="2010" class="option">2010</option>
+              <option value="2009" class="option">2009</option>
+              <option value="2008" class="option">2008</option>
+              <option value="2007" class="option">2007</option>
+              <option value="2006" class="option">2006</option>
+              <option value="2005" class="option">2005</option>
+              <option value="2004" class="option">2004</option>
+              <option value="2003" class="option">2003</option>
+              <option value="2002" class="option">2002</option>
+              <option value="2001" class="option">2001</option>
+              <option value="2000" class="option">2000</option>
+              <option value="1999" class="option">1999</option>
+              <option value="1998" class="option">1998</option>
+              <option value="1997" class="option">1997</option>
+              <option value="1996" class="option">1996</option>
+              <option value="1995" class="option">1995</option>
+              <option value="1994" class="option">1994</option>
+              <option value="1993" class="option">1993</option>
+              <option value="1992" class="option">1992</option>
+              <option value="1991" class="option">1991</option>
+              <option value="1990" class="option">1990</option>
+              <option value="1989" class="option">1989</option>
+              <option value="1988" class="option">1988</option>
+              <option value="1987" class="option">1987</option>
+              <option value="1986" class="option">1986</option>
+              <option value="1985" class="option">1985</option>
+              <option value="1984" class="option">1984</option>
+              <option value="1983" class="option">1983</option>
+              <option value="1982" class="option">1982</option>
+              <option value="1981" class="option">1981</option>
+              <option value="1980" class="option">1980</option>
+              <option value="1979" class="option">1979</option>
+              <option value="1978" class="option">1978</option>
+              <option value="1977" class="option">1977</option>
+              <option value="1976" class="option">1976</option>
+              <option value="1975" class="option">1975</option>
+              <option value="1974" class="option">1974</option>
+              <option value="1973" class="option">1973</option>
+              <option value="1972" class="option">1972</option>
+              <option value="1971" class="option">1971</option>
+              <option value="1970" class="option">1970</option>
+              <option value="1969" class="option">1969</option>
+              <option value="1968" class="option">1968</option>
+              <option value="1967" class="option">1967</option>
+              <option value="1966" class="option">1966</option>
+              <option value="1965" class="option">1965</option>
+              <option value="1964" class="option">1964</option>
+              <option value="1963" class="option">1963</option>
+              <option value="1962" class="option">1962</option>
+              <option value="1961" class="option">1961</option>
+              <option value="1960" class="option">1960</option>
+              <option value="1959" class="option">1959</option>
+              <option value="1958" class="option">1958</option>
+              <option value="1957" class="option">1957</option>
+              <option value="1956" class="option">1956</option>
+              <option value="1955" class="option">1955</option>
+              <option value="1954" class="option">1954</option>
+              <option value="1953" class="option">1953</option>
+              <option value="1952" class="option">1952</option>
+              <option value="1951" class="option">1951</option>
+              <option value="1950" class="option">1950</option>
+              <option value="1949" class="option">1949</option>
+              <option value="1948" class="option">1948</option>
+              <option value="1947" class="option">1947</option>
+              <option value="1946" class="option">1946</option>
+              <option value="1945" class="option">1945</option>
+              <option value="1944" class="option">1944</option>
+              <option value="1943" class="option">1943</option>
+              <option value="1942" class="option">1942</option>
+              <option value="1941" class="option">1941</option>
+              <option value="1940" class="option">1940</option>
+              <option value="1939" class="option">1939</option>
+              <option value="1938" class="option">1938</option>
+              <option value="1937" class="option">1937</option>
+              <option value="1936" class="option">1936</option>
+              <option value="1935" class="option">1935</option>
+              <option value="1934" class="option">1934</option>
+              <option value="1933" class="option">1933</option>
+              <option value="1932" class="option">1932</option>
+              <option value="1931" class="option">1931</option>
+              <option value="1930" class="option">1930</option>
+              <option value="1929" class="option">1929</option>
+              <option value="1928" class="option">1928</option>
+              <option value="1927" class="option">1927</option>
+              <option value="1926" class="option">1926</option>
+              <option value="1925" class="option">1925</option>
+              <option value="1924" class="option">1924</option>
+              <option value="1923" class="option">1923</option>
+              <option value="1922" class="option">1922</option>
+              <option value="1921" class="option">1921</option>
+              <option value="1920" class="option">1920</option>
+            </select>                      
+      </div>
+
+      <div class="col-6">
+        <label class="dMes">Hasta</label>
+        <select type="desdeMes" class="form-select" id="" placeholder="Seleccione" formControlName="HastaMes" required>
+          <option value="Enero">Enero</option>
+          <option value="Febrero">Febrero</option>
+          <option value="Marzo">Marzo</option>
+          <option value="Abril">Abril</option>
+          <option value="Mayo">Mayo</option>
+          <option value="Junio">Junio</option>
+          <option value="Julio">Julio</option>
+          <option value="Agosto">Agosto</option>
+          <option value="Septiembre">Septiembre</option>
+          <option value="Octubre">Octubre</option>
+          <option value="Noviembre">Noviembre</option>
+          <option value="Diciembre">Diciembre</option>
+        </select>           
+  </div>
+
+  <div class="col-6">
+    <label class="dAno" ></label>
+      <select class="form-select" id="" placeholder="Seleccione" formControlName="HastaAno" required>
+        <option value="" class="option">Año</option>
+        <option value="2022" class="option">2022</option>
+        <option value="2021" class="option">2021</option>
+        <option value="2020" class="option">2020</option>
+        <option value="2019" class="option">2019</option>
+        <option value="2018" class="option">2018</option>
+        <option value="2017" class="option">2017</option>
+        <option value="2016" class="option">2016</option>
+        <option value="2015" class="option">2015</option>
+        <option value="2014" class="option">2014</option>
+        <option value="2013" class="option">2013</option>
+        <option value="2012" class="option">2012</option>
+        <option value="2011" class="option">2011</option>
+        <option value="2010" class="option">2010</option>
+        <option value="2009" class="option">2009</option>
+        <option value="2008" class="option">2008</option>
+        <option value="2007" class="option">2007</option>
+        <option value="2006" class="option">2006</option>
+        <option value="2005" class="option">2005</option>
+        <option value="2004" class="option">2004</option>
+        <option value="2003" class="option">2003</option>
+        <option value="2002" class="option">2002</option>
+        <option value="2001" class="option">2001</option>
+        <option value="2000" class="option">2000</option>
+        <option value="1999" class="option">1999</option>
+        <option value="1998" class="option">1998</option>
+        <option value="1997" class="option">1997</option>
+        <option value="1996" class="option">1996</option>
+        <option value="1995" class="option">1995</option>
+        <option value="1994" class="option">1994</option>
+        <option value="1993" class="option">1993</option>
+        <option value="1992" class="option">1992</option>
+        <option value="1991" class="option">1991</option>
+        <option value="1990" class="option">1990</option>
+        <option value="1989" class="option">1989</option>
+        <option value="1988" class="option">1988</option>
+        <option value="1987" class="option">1987</option>
+        <option value="1986" class="option">1986</option>
+        <option value="1985" class="option">1985</option>
+        <option value="1984" class="option">1984</option>
+        <option value="1983" class="option">1983</option>
+        <option value="1982" class="option">1982</option>
+        <option value="1981" class="option">1981</option>
+        <option value="1980" class="option">1980</option>
+        <option value="1979" class="option">1979</option>
+        <option value="1978" class="option">1978</option>
+        <option value="1977" class="option">1977</option>
+        <option value="1976" class="option">1976</option>
+        <option value="1975" class="option">1975</option>
+        <option value="1974" class="option">1974</option>
+        <option value="1973" class="option">1973</option>
+        <option value="1972" class="option">1972</option>
+        <option value="1971" class="option">1971</option>
+        <option value="1970" class="option">1970</option>
+        <option value="1969" class="option">1969</option>
+        <option value="1968" class="option">1968</option>
+        <option value="1967" class="option">1967</option>
+        <option value="1966" class="option">1966</option>
+        <option value="1965" class="option">1965</option>
+        <option value="1964" class="option">1964</option>
+        <option value="1963" class="option">1963</option>
+        <option value="1962" class="option">1962</option>
+        <option value="1961" class="option">1961</option>
+        <option value="1960" class="option">1960</option>
+        <option value="1959" class="option">1959</option>
+        <option value="1958" class="option">1958</option>
+        <option value="1957" class="option">1957</option>
+        <option value="1956" class="option">1956</option>
+        <option value="1955" class="option">1955</option>
+        <option value="1954" class="option">1954</option>
+        <option value="1953" class="option">1953</option>
+        <option value="1952" class="option">1952</option>
+        <option value="1951" class="option">1951</option>
+        <option value="1950" class="option">1950</option>
+        <option value="1949" class="option">1949</option>
+        <option value="1948" class="option">1948</option>
+        <option value="1947" class="option">1947</option>
+        <option value="1946" class="option">1946</option>
+        <option value="1945" class="option">1945</option>
+        <option value="1944" class="option">1944</option>
+        <option value="1943" class="option">1943</option>
+        <option value="1942" class="option">1942</option>
+        <option value="1941" class="option">1941</option>
+        <option value="1940" class="option">1940</option>
+        <option value="1939" class="option">1939</option>
+        <option value="1938" class="option">1938</option>
+        <option value="1937" class="option">1937</option>
+        <option value="1936" class="option">1936</option>
+        <option value="1935" class="option">1935</option>
+        <option value="1934" class="option">1934</option>
+        <option value="1933" class="option">1933</option>
+        <option value="1932" class="option">1932</option>
+        <option value="1931" class="option">1931</option>
+        <option value="1930" class="option">1930</option>
+        <option value="1929" class="option">1929</option>
+        <option value="1928" class="option">1928</option>
+        <option value="1927" class="option">1927</option>
+        <option value="1926" class="option">1926</option>
+        <option value="1925" class="option">1925</option>
+        <option value="1924" class="option">1924</option>
+        <option value="1923" class="option">1923</option>
+        <option value="1922" class="option">1922</option>
+        <option value="1921" class="option">1921</option>
+        <option value="1920" class="option">1920</option>
+      </select>                      
+</div>
+
+
+
+
+           <div class="col-12">
+            <label class="idioma">Añadir nueva formación</label>
+
+            <div class=" mx-auto">
+              <table class="table table-hover ">
+                <thead>
+                  <tr class="">
+                    <th>Cargo</th>
+                    <th>Empresa </th>
+                    <th>Estado</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Desarrollador</td>
+                    <td>microsoft..</td>
+                    <td>Actualmente</td>
+                    <td><button type="button" class="btn btn-outline-danger">X</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-dark">Añadir</button>
+              </div>
+            </div>
+            
+         </div>
+
+        </div>
+        
+         
+          <hr class="my-4">
+
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Finalizar</button>
+        </form>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+  </footer>
+</div>
+
+
 <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-<script src="form-validation.js"></script>
-
-<script type="text/javascript">
-  $("#datetime").datetimepicker({
-      format: 'yyyy-mm-dd hh:ii',
-      autoclose: true
-  });
-</script>

@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ResgisterComponent } from './components/resgister/resgister.component';
 import { BeginningComponent } from './components/beginning/beginning.component';
 import { IndexComponent } from './components/index/index.component';
+import { RegisterEmpresaComponent } from './components/register-empresa/register-empresa.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { IndexComponent } from './components/index/index.component';
     ResgisterComponent,
     LoginComponent,
     BeginningComponent,
-    IndexComponent
+    IndexComponent,
+    RegisterEmpresaComponent
   ],
   imports: [
     BrowserModule,
