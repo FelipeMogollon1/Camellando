@@ -3,21 +3,16 @@
 class CONNECT {
   
 
-  public static function info_db(){
+  private static function info_db(){
 
      $array=[
-      'db_name' => 'camellando_db',
-      'root' => 'root',
-      'password' => '',
-
+      'db_name'  => 'camellando_db',
+      'root'     => 'root',
+      'password' => ''
     ];
 
     return $array;
   }
-
-
-
-
 
 
  // -----------------------------------------------------------------------------------------
@@ -41,7 +36,7 @@ class CONNECT {
   }
 
   // -----------------------------------------------------------------------------------------
-  // this method is for control the erros, when escriba  not bien the name of the table or the colum
+  // this method is for control the erros, when escriba  not bien the name of the table or the column
   // -----------------------------------------------------------------------------------------
   public static function control_erro($table ,$select){
     $database= CONNECT::info_db()['db_name'];
@@ -52,8 +47,8 @@ class CONNECT {
 
 
     if(empty($validator)){
-
-      return null;
+     
+      return null;      
 
     }else{
 

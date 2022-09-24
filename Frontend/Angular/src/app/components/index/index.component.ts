@@ -18,5 +18,6 @@ export class IndexComponent implements OnInit {
   enviarDatos():any{
     console.log('clickeado');
     this.ruteador.navigateByUrl('/Index');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

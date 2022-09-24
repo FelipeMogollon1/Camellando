@@ -5,15 +5,20 @@ include_once "controller/get_controller.php";
 
 
 $select = $_GET['select'] ?? "*";
-//  this lines resiven the parametros for order the elemens 
+
+// -------------------------------------------------------
+//  this params get the parametros for order the elemens 
+// --------------------------------------------------------
 $order_by = $_GET['order'] ?? null;
 $column = $_GET['column'] ?? null;
-
-//  this lines are for limit the registros 
+// -------------------------------------------
+//  this params are for limit the registros 
+// -----------------------------------------
 $init = $_GET['init'] ?? null;
 $finit = $_GET['finit'] ?? null;
-
-//  this lines is for limit of data
+// ---------------------------------------
+//  this params is for filter of datas with the clasule between
+// -----------------------------------
 $filter = $_GET['filter'] ?? null;
 $into = $_GET['into'] ?? null;
 
@@ -51,7 +56,6 @@ if (isset($_GET['linkto']) && isset($_GET['equalto']) and !isset($_GET['rel']) &
     // -----------------------------------------------
 
 } else if (isset($_GET['rel']) && isset($_GET['type']) && $table == "relation" && isset($_GET['linkto']) && isset($_GET['equalto'])) {
-
 
     print_r(json_encode($__get_controller->get_query_relation_where($select, $_GET['rel'], $_GET['type'], $_GET['linkto'], $_GET['equalto'], $column, $order_by, $init, $finit)));
 
@@ -107,7 +111,6 @@ if (isset($_GET['linkto']) && isset($_GET['equalto']) and !isset($_GET['rel']) &
     // -----------------------------------------------
 }else{
 
-   
     print_r(json_encode( $__get_controller->get_query_all($table, $select, $column, $order_by, $init, $finit)));
     
 }

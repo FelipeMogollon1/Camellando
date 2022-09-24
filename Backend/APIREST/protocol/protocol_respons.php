@@ -8,12 +8,13 @@ class PROTOCOL_RESPONS
         "status" => 0,
         "result" => array()
     ];
-
+    // --------------------------------------------
     // this  is the line of all the code 200
-    public static function get_ok_200()
+     // --------------------------------------------
+    public static function get_ok_200($result)
     {
         $respos['status'] = 200;
-        $respos['result'] = array("todo esta ok");
+        $respos['result'] = array($result);
         $json = json_encode($respos, http_response_code($respos['status']));
         print_r($json);
         // return $json;
@@ -30,13 +31,14 @@ class PROTOCOL_RESPONS
     }
 
 
-
+     // --------------------------------------------
     // this line is of all code 400
+     // --------------------------------------------
 
-    public static function get_error_401()
+    public static function get_error_401($result)
     {
         $respos['status'] = 401;
-        $respos['result'] = array("no se pudo guardar la informacion");
+        $respos['result'] = array($result);
         $json = json_encode($respos, http_response_code($respos['status']));
         print_r($json);
         // return $json;
@@ -52,8 +54,9 @@ class PROTOCOL_RESPONS
     }
 
 
-
+    // -------------------------------------------------------------------
     // this  method is for to give permmision to user for consume the api
+     // ---------------------------------------------------------------
     final public static function headerHttpDev($method)
     {
         if ($method == 'OPTIONS') {
@@ -64,6 +67,6 @@ class PROTOCOL_RESPONS
         header('Access-Control-Allow-Methods: GET,PUT,POST,PATCH,DELETE');
         header("Allow: GET, POST, OPTIONS, PUT, PATCH , DELETE");
         header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Authorization");
-        //header('Content-Type: application/json'); 
+        header('Content-Type: application/json'); 
     }
 }
