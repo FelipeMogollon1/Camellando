@@ -9,16 +9,17 @@ import {tbl_usuarios} from './register';
 
 export class RegisterService {
 
-  API:string="http://localhost:81/Camellando/Backend/Api/Registro.php";
-  UBICACION:string="http://localhost:81/Camellando/Backend/Api/Registro.php";
-  CATEGORIA:string="http://localhost:81/Camellando/Backend/Api/Categoria.php";
-  LOGIN:string="http://localhost:81/Camellando/Backend/Api/login.php"
+  POST:string="http://localhost:81/Camellando/Backend/APIREST/tbl_usuarios";
+  USUARIO:string="http://localhost:81/Camellando/Backend/APIREST/tbl_usuarios";
+  UBICACION:string="http://localhost:81/Camellando/Backend/APIREST/tbl_ubicacion";
+  CATEGORIA:string="http://localhost:81/Camellando/Backend/APIREST/tbl_cargo";
+  LOGIN:string="http://localhost:81/Camellando/Backend/Api/login.php";
 
   constructor(private clientHttp:HttpClient) { }
 
   //Metodo para Agregar nuevo Registro
   AgregarRegistro(datosRegistro:tbl_usuarios):Observable<any>{
-    return this.clientHttp.post(this.API+"?insertar=1",datosRegistro);
+    return this.clientHttp.post(this.POST,datosRegistro);
   }
 
   //Metodo para Buscar las ciudades
@@ -34,6 +35,10 @@ export class RegisterService {
   //Metodo para Buscar login
   login(){
     return this.clientHttp.get(this.LOGIN); 
+  }
+
+ tblusuario(){
+    return this.clientHttp.get(this.USUARIO); 
   }
 
 }

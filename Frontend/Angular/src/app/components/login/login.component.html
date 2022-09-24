@@ -1,3 +1,28 @@
+                <!-- header-->
+                <div class="container site-header  bg-white">
+                  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2  mb-4 ">
+                      <a (click)="Inicio()" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-decoration-none">
+                      <img src="./assets/images/Camello.png"  class="icon-camellando" alt="CameLLando" width="50px">
+                      <h3 class="text-danger fw-bold ">Came</h3><br><h3 class="text-dark fw-bold">LLando</h3> 
+                      </a>
+              
+                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                     <!--  <li><a href="" routerLink="Beginning" class="nav-link px-2 link-dark">Inicio</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">About</a></li>-->
+                    </ul>
+              
+                    <div class="col-md-3 text-center">
+                      <!--
+                      <button type="button" class="btn btn-outline-dark me-2 m-1 " routerLink="Login">Inicia Sesión</button>
+                      <button type="button" class="btn btn-dark m-1" routerLink="Register">Registrate</button>
+                    -->
+                    </div>
+                  </header>
+                </div>  
+                
    <!-- body-->
   <div class="container col-xl-10 col-xxl-8 px-4 py-2 shadow">
     <div class="row align-items-center g-lg-5 py-5">
@@ -7,13 +32,13 @@
         <h4 class="col-lg-10 fs-4">Estamos listos para ayudarte a encontrar ese empleo que tanto anhelas.</h4>
       </div>
       <div class="col-md-10 mx-auto col-lg-5 ">
-        <form class="p-4 p-md-5 border rounded-4 bg-dark" (ngSubmit)="enviarDatos()">
+        <form cnovalidate class="was-validated p-4 p-md-5 border rounded-4 bg-dark"  [formGroup]="formLogin" (ngSubmit)="enviarDatos()">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <input type="email" class="form-control" id="email" formControlName="correo" placeholder="name@example.com" required>
             <label for="floatingInput" class="">Correo</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="password" placeholder="Password">
+            <input type="password" class="form-control" minlength="5" id="password" formControlName="contrasena" placeholder="Password" required>
             <label for="floatingPassword">Contraseña</label>
           </div>
           <div class="checkbox mb-3">
@@ -21,7 +46,7 @@
               <input type="checkbox" value="remember-me" > Recordarme
             </label>
           </div>
-          <button class="w-100 btn btn-lg btn-outline-danger me-2 m-1 "  type="submit">Iniciar Sesión</button>
+          <button class="w-100 btn btn-lg btn-outline-danger me-2 m-1 " [disabled]="formLogin.invalid"  type="submit">Iniciar Sesión</button>
           <hr class="my-2 ">
           <p class="text text-white">Al hacer clic en Iniciar Sesión, acepta los términos de uso.</p>
         

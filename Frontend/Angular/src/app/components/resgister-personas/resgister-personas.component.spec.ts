@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ResgisterComponent } from './resgister.component';
+import { ResgisterComponent } from './resgister-personas.component';
 
 describe('ResgisterComponent', () => {
   let component: ResgisterComponent;

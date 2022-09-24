@@ -32,6 +32,7 @@ class GET_MODEL
              $select_array=explode(",",$select);
 
             if(empty(CONNECT::control_erro($table,$select_array))){
+                //echo "hola parce";
                 return null;
             }
 
@@ -65,6 +66,7 @@ class GET_MODEL
             return $execute->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $e) {
             die($e->getMessage());
+            //rint_r('imprima el error') ;
         }
     }
 
@@ -247,7 +249,7 @@ class GET_MODEL
 
 
             // ------------------------------------------------------------------------
-            // this for is of the inner join
+            // this for is do the inner join dinamyc
             // ------------------------------------------------------------------------   
 
 
@@ -482,6 +484,8 @@ class GET_MODEL
         }
     }
 
+
+    
     // ------------------------------------------------------------------------
     // this  tethod is for do query with the clasule between
     // ------------------------------------------------------------------------

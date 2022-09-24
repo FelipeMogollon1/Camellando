@@ -7,7 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginComponent } from './components/login/login.component';
-import { ResgisterComponent } from './components/resgister/resgister.component';
+import { ResgisterComponent } from './components/resgister-personas/resgister-personas.component';
 import { BeginningComponent } from './components/beginning/beginning.component';
 import { IndexComponent } from './components/index/index.component';
 import { RegisterEmpresaComponent } from './components/register-empresa/register-empresa.component';

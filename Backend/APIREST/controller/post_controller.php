@@ -10,6 +10,7 @@ class POST_CONTROLLER{
         if(!empty($table)){
 
             $mod=new POST_MODEL();
+
             $mod->set_insert($table,$atribute);
 
         }else{
@@ -19,13 +20,6 @@ class POST_CONTROLLER{
 
     }
 
-
-
-
-
-
-
-    
 }
 
 

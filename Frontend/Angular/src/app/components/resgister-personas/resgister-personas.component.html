@@ -1,5 +1,30 @@
- <!-- PRIMER REGISTRO-->
-<div class="container shadow-lg" >
+                 <!-- header-->
+                 <div class="container site-header  bg-white">
+                  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2  mb-4 ">
+                      <a (click)="Inicio()" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-decoration-none">
+                      <img src="./assets/images/Camello.png"  class="icon-camellando" alt="CameLLando" width="50px">
+                      <h3 class="text-danger fw-bold ">Came</h3><br><h3 class="text-dark fw-bold">LLando</h3> 
+                      </a>
+              
+                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                     <!--  <li><a href="" routerLink="Beginning" class="nav-link px-2 link-dark">Inicio</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+                      <li><a href="#" class="nav-link px-2 link-dark">About</a></li>-->
+                    </ul>
+              
+                    <div class="col-md-3 text-center">
+                      <!--
+                      <button type="button" class="btn btn-outline-dark me-2 m-1 " routerLink="Login">Inicia Sesión</button>
+                      <button type="button" class="btn btn-dark m-1" routerLink="Register">Registrate</button>
+                    -->
+                    </div>
+                  </header>
+                </div>  
+ 
+ <!-- PRIMER REGISTRO--------------------------------------------------------->
+<div class="container shadow-lg" id="usuario" *ngIf="usuario == true" >
   <main>
     <div class="py-5 text-center">
         <h2>Registrate</h2>
@@ -8,28 +33,31 @@
       <div class="col-md-3">        
       </div>  
       <div class="col-md-6 col-lg-6">
-         <form class="needs-validation" novalidate [formGroup]="formularioRegistro" (ngSubmit)="enviarDatos()">      
-          <div class="row g-3">         
+         <form class="was-validated" novalidate [formGroup]="formularioUsuario" (ngSubmit)="formUsuario()">      
+          <div class="row g-3 form-group">       
         
             <div class="col-sm-12">
               <label for="nombre" class="form-label">Nombres</label>
-              <input type="text" class="form-control" id="" placeholder="Felipe" formControlName="nombre" value="" required>
+              <input type="text" class="form-control custom-control-input"  pattern="^[a-zA-Z\s]{2,254}" placeholder="" formControlName="nombre" required>
               <div class="invalid-feedback">
-                El nombre es requerido.
+                El nombre es requerido
               </div>
+              <!--<div *ngIf="formularioUsuario.get('nombre').invalid && (formularioUsuario.get('nombre').dirty || formularioUsuario.get('nombre').touched)"
+              class = "alert alert-danger">
+              </div>-->
             </div>
 
             <div class="col-sm-12">
               <label for="apellido" class="form-label">Apellidos</label>
-              <input type="text" class="form-control" id="" placeholder="Mogollón" formControlName="apellido" value="" required="">
+              <input type="text" class="form-control"  placeholder="" pattern="^[a-zA-Z\s]{2,254}" formControlName="apellido" value="" required>
               <div class="invalid-feedback">
-                Valid last name is required.
+                El apellido es requerido
               </div>
             </div>
 
             <div class="col-12">
               <label for="correo" class="form-label">Correo</label>
-              <input type="email" class="form-control" id="" formControlName="correo" placeholder="ejemplo@mail.com">
+              <input type="email" class="form-control" formControlName="correo" placeholder="" required>
               <div class="invalid-feedback">
                 Ingrese una dirección de correo electrónico válida para actualizaciones de envío.
               </div>
@@ -38,21 +66,33 @@
 
           <hr class="my-4">
 
-          <div class="row">
-            <div class="col-md-6">
+          <div class="row ">
+            <div class="col-md-6 form-group" >
               <label for="country" class="form-label">Nueva Contraseña</label>
-              <input type="password" class="form-control" id="" formControlName="contrasena" placeholder="">
+              <input type="password" class="form-control" minlength="5"  formControlName="contrasenia" placeholder="" required>
+              <div class="invalid-feedback">
+                La contraseña es requerida y debe ser mayor de 5 digitos.
+              </div> 
             </div>
   
-            <div class="col-md-6">
+            <div class="col-md-6 form-group">
               <label for="state" class="form-label">Repite Contraseña</label>
-              <input type="password" class="form-control" id="" formControlName="contrasena" placeholder="">
+              <input type="password" class="form-control" minlength="5" formControlName="contrasena" placeholder="" required>
+              <div class="invalid-feedback">
+                La contraseña es requerida y debe ser mayor de 5 digitos.
+            </div> 
+
             </div>
+            
+           <!-- <div *ngIf="formularioUsuario.get('contrasenia').value != formularioUsuario.get('contrasena').value"
+            class = "alert alert-danger ">
+            Las constraseñas no coinciden
+            </div> --->
           </div>      
          
           <hr class="my-4">
 
-          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" [disabled]="formularioUsuario.invalid" type="submit">Continuar</button>
         </form>
       </div>
       <div class="col-md-2">
@@ -66,8 +106,8 @@
 </div>
 
 
- <!-- SEGUNDO REGISTRO-->
- <div class="container shadow-lg" >
+ <!-- SEGUNDO REGISTRO--------------------------------------------------------->
+ <div class="container shadow-lg" id="informacionPersonal" *ngIf="informacionPersonal == true">
   <main>
     <div class="py-5 text-center">
         <h2>Información Personal</h2>
@@ -76,14 +116,15 @@
       <div class="col-md-3">        
       </div>  
       <div class="col-md-6 col-lg-6">
-         <form class="needs-validation" novalidate [formGroup]="formularioRegistroDos" (ngSubmit)="enviarDatosDos()">      
+         <form class="was-validated" novalidate [formGroup]="formularioInformacionPersonal" (ngSubmit)="formInformacionPersonal()">      
           <div class="row g-3">
             
 
         
             <div class="col-sm-3">
               <label for="nombre" class="form-label">Tipo*</label>
-              <select type="text" class="form-control" id="" placeholder="" formControlName="tipoIdentificacion" value="" required>
+              <select type="text" class="form-select"  placeholder="" formControlName="tipoIdentificacion" required>
+                <option value="" disabled>seleccione</option>
                 <option value="CEDULA DE CIUDADANIA">CC</option>
                 <option value="CEDULA DE EXTRANJERIA">CE</option>
                 <option value="TARJETA DE IDENTIDAD">TI</option>
@@ -120,14 +161,14 @@
 
             <div class="col-12">
               <label for="correo" class="form-label">Foto</label>
-                <input type="file" accept="image/*" class="form-control" id="foto" formControlName="foto">
+                <input type="file" accept="image/*" class="form-control" id="" formControlName="foto">
              </div>
         
 
           <div class="col-12">
             <label for="ciudad" class="form-label">Ciudad*</label>
-            <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="id_ubicacion" required>
-              <option *ngFor="let resgister of Ciudad; let iControl=index" value="{{resgister.id_ubicacion}}">{{resgister.ciudad}} , {{resgister.departamento}}</option>
+            <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="ubicacion" required>
+              <option *ngFor="let resgister of Ciudad; let iControl=index" value="{{resgister.id_ubicacion}}">{{resgister.ciudad}}, {{resgister.departamento}}</option>
             </select>  
             <div class="invalid-feedback">
               Ingrese numero de telefono.
@@ -144,7 +185,8 @@
 
           <div class="col-12">
             <label for="ciudad" class="form-label">Genero*</label>
-            <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="ubicacion" required>
+            <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="genero" required>
+              <option value="" disabled>seleccione</option>
               <option value="Masculino">Masculino</option>
               <option value="Femenino">Femenino</option>
               <option value="Otro">Otro</option>
@@ -159,7 +201,7 @@
          
           <hr class="my-4">
 
-          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" [disabled]="formularioInformacionPersonal.invalid" type="submit">Continuar</button>
         </form>
       </div>
       <div class="col-md-2">
@@ -173,8 +215,8 @@
 
 
 
-<!-- TERCER  REGISTRO-->
-<div class="container shadow-lg" >
+<!-- TERCER  REGISTRO--------------------------------------------------------->
+<div class="container shadow-lg" id="perfilProfesional" *ngIf="perfilProfesional == true">
   <main>
     <div class="py-5 text-center">
         <h2>Perfil Profesional</h2>
@@ -183,13 +225,13 @@
       <div class="col-md-3">        
       </div>  
       <div class="col-md-6 col-lg-6">
-         <form class="needs-validation" novalidate [formGroup]="formularioRegistroTres" (ngSubmit)="enviarDatosTres()">      
+         <form class="was-validated" novalidate[formGroup]="formularioperfilProfesional" (ngSubmit)="formperfilProfesional()">      
           <div class="row g-3">
             
             <div class="col-md-12">
               <label for="country" class="form-label">Cargo o título breve de su Hoja de Vida</label>
-              <select class="form-select" id="" formControlName="id_cargo">
-                <option *ngFor="let resgister of Categoria; let iControl=index" value="{{resgister.id_cargo}} ">{{resgister.nombre}}</option>
+              <select class="form-select" id="" formControlName="cargo">
+                <option *ngFor="let resgister of Categoria; let iControl=index" value="{{resgister.id_cargo}}">{{resgister.nombre}}</option>
               </select>
               <div class="invalid-feedback">
                 Please select a valid country.
@@ -206,7 +248,7 @@
 
             <div class="col-12">
               <label for="correo" class="form-label">Salario mínimo aceptado</label>
-              <input type="number" class="form-control" id="" formControlName="telefono" placeholder="">
+              <input type="number" class="form-control" id="" formControlName="salarioMinimo" placeholder="">
               <div class="invalid-feedback">
                 Ingrese numero de telefono.
               </div>
@@ -227,44 +269,11 @@
                 <option value="NO">No</option>
               </select>           
            </div>
-
-           <div class="col-12">
-            <label class="idioma">Idiomas</label>
-
-            <div class=" mx-auto">
-              <table class="table table-hover ">
-                <thead>
-                  <tr class="">
-                    <th>Idiomas</th>
-                    <th>Lectura</th>
-                    <th>Escritura</th>
-                    <th>Escucha</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Español</td>
-                    <td>Nativo</td>
-                    <td>Nativo</td>
-                    <td>Nativo</td>
-                    <td><button type="button" class="btn btn-outline-danger">X</button></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-dark">Añadir</button>
-              </div>
-            </div>
-            
-         </div>
-
-        </div>
-        
+        </div>      
          
           <hr class="my-4">
 
-          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" [disabled]="formularioperfilProfesional.invalid" type="submit">Continuar</button>
         </form>
       </div>
       <div class="col-md-2">
@@ -277,10 +286,8 @@
 </div>
 
 
-
-
-<!-- CUARTO  REGISTRO-->
-<div class="container shadow-lg" >
+<!-- CUARTO  REGISTRO--------------------------------------------------------->
+<div class="container shadow-lg" id="formacion" *ngIf="formacion == true">
   <main>
     <div class="py-5 text-center">
         <h2>¿Que formación tienes?</h2>
@@ -289,13 +296,65 @@
       <div class="col-md-3">        
       </div>  
       <div class="col-md-6 col-lg-6">
-         <form class="needs-validation" novalidate [formGroup]="formularioRegistroTres" (ngSubmit)="enviarDatosTres()">      
-          <div class="row g-3">
+
             
-            
+<!-- IDIOMA--------------------------------------------------------->
+<form class="was-validated" novalidate [formGroup]="formularioIdioma" (ngSubmit)="formIdioma()">      
+  <div class="row g-3">
+  <label class="idioma">Idiomas</label> 
+  <div class="col-8"> 
+    <span class="" data-language-item="">   
+        <p> Contenedor de idiomas - otro</p>
+    </span>
+  </div> 
+  <a class="col-4" style="cursor:pointer;" (click)="agregarIdioma()">Añadir</a>
+   
+
+<div class="row g-3" *ngIf="Idioma == true">
+      <label class="" id="TituloIdioma">Añade idiomas y el nivel</label> 
+
+      <div class="col-6" id="SelectIdioma">  
+      <label class="Disponibilidad" >Idiomas</label>
+        <select type="text" class="form-select" id="" placeholder="Seleccione" formControlName="nombre" required>
+          <option value="" disabled>seleccione</option>
+          <option value="0">Idiomas</option>
+          <option value=""></option>
+        </select>           
+     </div>
+
+      <div class="col-6"  id="SelectNivel">
+      <label class="Disponibilidad" >Nivel</label>
+      <select type="text" class="form-select" formControlName="nivel" required>
+        <option value="" disabled>seleccione</option>
+        <option value="A0: Principiante">A0: Principiante</option>
+        <option value="A1: Básico">A1: Básico</option>
+        <option value="A2: Básico">A2: Básico</option>
+        <option value="A2: Pre-intermedio">A2: Pre-intermedio</option>
+        <option value="B1: Pre-intermedio">B1: Pre-intermedio</option>
+        <option value="B1: Intermedio">B1: Intermedio</option>
+        <option value="B2: Intermedio-Alto">B2: Intermedio-Alto</option>
+        <option value="C1: Avanzado">C1: Avanzado</option>
+        <option value="C2: Avanzado">C2: Avanzado</option>
+      </select>           
+      </div>
+
+      <div class="col-12 p-2" align="center">
+        <button type="submit" class="btn btn-outline-dark" [disabled]="formularioIdioma.invalid" >Guardar</button>
+      </div>
+    </div> 
+  </div> 
+
+  </form>
+<!----------------------------------------------------------->
+
+
+  <form class="was-validated" novalidate [formGroup]="formularioFormacion" (ngSubmit)="formFormacion()">      
+    <div class="row g-3">
+
             <div class="col-sm-12">
               <label for="nombre" class="form-label">Nivel de estudio*</label>
               <select type="text" class="form-control" id="" placeholder="" formControlName="nivel" value="" required>
+                <option value="" disabled>seleccione</option>
                 <option value="Educación Básica Primaria">Educación Básica Primaria</option>
                 <option value="Educación Básica Secundaria">Educación Básica Secundaria</option>
                 <option value="Bachiderato / Educación Media">Bachiderato / Educación Media</option>
@@ -337,6 +396,7 @@
             <div class="col-6">
               <label class="dMes">Desde</label>
               <select type="desdeMes" class="form-select" id="" placeholder="Seleccione" formControlName="desdeMes" required>
+                <option value="" disabled>seleccione</option>
                 <option value="Enero">Enero</option>
                 <option value="Febrero">Febrero</option>
                 <option value="Marzo">Marzo</option>
@@ -356,6 +416,7 @@
           <label class="dAno" ></label>
             <select class="form-select" id="" placeholder="Seleccione" formControlName="desdeAno" required>
               <option value="" class="option">Año</option>
+              <option value="" disabled>seleccione</option>
               <option value="2022" class="option">2022</option>
               <option value="2021" class="option">2021</option>
               <option value="2020" class="option">2020</option>
@@ -465,6 +526,7 @@
       <div class="col-6">
         <label class="dMes">Hasta</label>
         <select type="desdeMes" class="form-select" id="" placeholder="Seleccione" formControlName="HastaMes" required>
+          <option value="" disabled>Mes++</option>
           <option value="Enero">Enero</option>
           <option value="Febrero">Febrero</option>
           <option value="Marzo">Marzo</option>
@@ -627,7 +689,7 @@
          
           <hr class="my-4">
 
-          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Continuar</button>
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" [disabled]="formularioFormacion.invalid" type="submit">Continuar</button>
         </form>
       </div>
       <div class="col-md-2">
@@ -641,8 +703,8 @@
 
 
 
-<!-- QUINTO  REGISTRO-->
-<div class="container shadow-lg" >
+<!-- QUINTO  REGISTRO--------------------------------------------------------->
+<div class="container shadow-lg" id="experienciaLaboral" *ngIf="experienciaLaboral == true">
   <main>
     <div class="py-5 text-center">
         <h2>Experiencia Laboral</h2>
@@ -651,7 +713,7 @@
       <div class="col-md-3">        
       </div>  
       <div class="col-md-6 col-lg-6">
-         <form class="needs-validation" novalidate [formGroup]="formularioRegistroTres" (ngSubmit)="enviarDatosTres()">      
+         <form class="was-validated" novalidate novalidate [formGroup]="formularioExperienciaLaboral" (ngSubmit)="formExperienciaLaboral()">      
           <div class="row g-3">
             
             <div class="col-sm-12">
@@ -970,10 +1032,6 @@
         <option value="1920" class="option">1920</option>
       </select>                      
 </div>
-
-
-
-
            <div class="col-12">
             <label class="idioma">Añadir nueva formación</label>
 
@@ -1008,7 +1066,7 @@
          
           <hr class="my-4">
 
-          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" type="submit">Finalizar</button>
+          <button class="w-100 btn btn-outline-danger btn-lg px-4 me-sm-3 fw-bold" [disabled]="formularioExperienciaLaboral.invalid" type="submit">Finalizar</button>
         </form>
       </div>
       <div class="col-md-2">
@@ -1020,6 +1078,4 @@
   </footer>
 </div>
 
-
-<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
